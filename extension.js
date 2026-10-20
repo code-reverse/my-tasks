@@ -70,7 +70,7 @@ function activate(context) {
   async function deleteTask(task) {
     const index = tasks.indexOf(task);
     if (index === -1) return;
-    tasks.splice(index);
+    tasks.splice(index, 1);
     await save();
   }
 
