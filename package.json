@@ -1,0 +1,68 @@
+{
+  "name": "my-tasks",
+  "displayName": "My Tasks",
+  "description": "Simple task list",
+  "publisher": "561416",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "main": "./extension.js",
+  "files": [
+    "extension.js",
+    "README.md"
+  ],
+  "scripts": {
+    "package": "npx --package @vscode/vsce -- vsce package --no-dependencies --allow-missing-repository --skip-license"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "my-tasks.addTask",
+        "title": "Добавить задачу",
+        "icon": "$(add)"
+      },
+      {
+        "command": "my-tasks.deleteTask",
+        "title": "Удалить задачу",
+        "icon": "$(trash)"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "my-tasks.taskList",
+          "name": "My Tasks"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "my-tasks.taskList",
+        "contents": "Здесь будут твои задачи.\n[Добавить задачу](command:my-tasks.addTask)\nОтмечай выполненные задачи галочкой."
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "my-tasks.addTask",
+          "when": "view == my-tasks.taskList",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "my-tasks.deleteTask",
+          "when": "view == my-tasks.taskList",
+          "group": "inline"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "my-tasks.deleteTask",
+          "when": "false"
+        }
+      ]
+    }
+  }
+}
