@@ -1,9 +1,9 @@
 {
   "name": "my-tasks",
   "displayName": "My Tasks",
-  "description": "Simple task list with priorities",
+  "description": "Simple task list with priorities and statistics",
   "publisher": "561416",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -30,6 +30,11 @@
       {
         "command": "my-tasks.changePriority",
         "title": "Изменить приоритет"
+      },
+      {
+        "command": "my-tasks.showStats",
+        "title": "Статистика задач",
+        "icon": "$(graph)"
       }
     ],
     "views": {
@@ -50,6 +55,11 @@
       "view/title": [
         {
           "command": "my-tasks.addTask",
+          "when": "view == my-tasks.taskList",
+          "group": "navigation"
+        },
+        {
+          "command": "my-tasks.showStats",
           "when": "view == my-tasks.taskList",
           "group": "navigation"
         }
