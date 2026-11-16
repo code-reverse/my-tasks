@@ -1,9 +1,9 @@
 {
   "name": "my-tasks",
   "displayName": "My Tasks",
-  "description": "Simple task list",
+  "description": "Simple task list with priorities",
   "publisher": "561416",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -26,6 +26,10 @@
         "command": "my-tasks.deleteTask",
         "title": "Удалить задачу",
         "icon": "$(trash)"
+      },
+      {
+        "command": "my-tasks.changePriority",
+        "title": "Изменить приоритет"
       }
     ],
     "views": {
@@ -60,6 +64,10 @@
       "commandPalette": [
         {
           "command": "my-tasks.deleteTask",
+          "when": "false"
+        },
+        {
+          "command": "my-tasks.changePriority",
           "when": "false"
         }
       ]
